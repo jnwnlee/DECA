@@ -81,7 +81,7 @@ def write_obj(obj_name,
         texture: shape = (uv_size, uv_size, 3)
         uvcoords: shape = (nver, 2) max value<=1
     '''
-    if os.path.splitext(obj_name)[-1] != 'obj':
+    if os.path.splitext(obj_name)[-1] != '.obj':
         obj_name = obj_name + '.obj'
     mtl_name = obj_name.replace('.obj', '.mtl')
     texture_name = obj_name.replace('.obj', '.png')
@@ -141,7 +141,7 @@ def write_obj(obj_name,
                 if normal_map is not None:
                     name, _ = os.path.splitext(obj_name)
                     normal_name = f'{name}_normals.png'
-                    f.write(f'disp {normal_name}')
+                    f.write(f'disp {os.path.basename(normal_name)}')
                     # out_normal_map = normal_map / (np.linalg.norm(
                     #     normal_map, axis=-1, keepdims=True) + 1e-9)
                     # out_normal_map = (out_normal_map + 1) * 0.5

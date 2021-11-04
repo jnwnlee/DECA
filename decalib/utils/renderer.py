@@ -394,7 +394,8 @@ class SRenderY(nn.Module):
         if images is None:
             shape_images = shaded_images*alpha_images + torch.zeros_like(shaded_images).to(vertices.device)*(1-alpha_images)
         else:
-            shape_images = shaded_images*alpha_images + images*(1-alpha_images)
+            alpha = 0.7
+            shape_images = alpha*shaded_images*alpha_images + (1-alpha)*images*(alpha_images) + images*(1-alpha_images)
         if return_grid:
             uvcoords_images = rendering[:, 12:15, :, :]; 
             grid = (uvcoords_images).permute(0, 2, 3, 1)[:, :, :, :2]
