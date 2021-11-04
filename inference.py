@@ -49,7 +49,7 @@ def main(args):
             codedict = deca.encode(images)
             opdict, visdict = deca.decode(codedict) #tensor
             if args.render_orig:
-                tform = testdata[i]['tform'][None, ...]
+                tform = torch.tensor(testdata[i]['tform'].params).float()[None, ...]
                 tform = torch.inverse(tform).transpose(1,2).to(device)
                 original_image = testdata[i]['original_image'][None, ...].to(device)
                 _, orig_visdict = deca.decode(codedict, render_orig=True, original_image=original_image, tform=tform)    
