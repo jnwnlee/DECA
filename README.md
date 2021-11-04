@@ -76,7 +76,19 @@ Clone the repo:
     ```bash
     python demos/demo_teaser.py 
     ``` 
+
+    d. **inference** by [jnwnlee](https://github.com/jnwnlee)
+
+    Outputs image results and 'outputdict.pkl' that contains raw outputs of DECA.
+
+    For detailed descriptions, see [notebook](https://github.com/jnwnlee/DECA/blob/inference/explore_inference_output.ipynb).
     
+    (For descriptions on original output dictionaries in DECA pipeline, see [notebook](https://github.com/jnwnlee/DECA/blob/inference/explore_DECA_output.ipynb))
+    ```bash
+    python inference.py -i TestSamples/examples -s TestSamples/examples/results
+    ```
+    **pytorch3d** is used as a default rasterizer.
+
     More demos and training code coming soon.
 
 ## Evaluation
